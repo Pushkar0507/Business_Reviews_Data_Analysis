@@ -1,7 +1,13 @@
 # 🛠️ Business_Reviews_Data_Analysis
  
+## 🚀 Project Overview
+This hands-on project demonstrates the design and implementation of a modern cloud-based data pipeline using a real-world dataset. The goal was to ingest, transform, and analyze large-scale JSON data end-to-end—from raw ingestion to sentiment-based insights—leveraging the power of AWS, Snowflake, Python, and SQL.
 
-This project demonstrates a complete end-to-end data pipeline using **Yelp's open dataset**. It covers everything from data ingestion and transformation to advanced analytics and sentiment analysis — all using modern cloud and data tools.
+It showcases practical experience in:
+- **Cloud Storage & Data Engineering using AWS S3**
+- **Data Warehousing & Analytics with Snowflake**
+- **Data Transformation using Python and SQL**
+- **Real-Time Sentiment Analysis using TextBlob via Python UDFs inside Snowflake**
 
 ## 📦 Dataset
 
@@ -9,50 +15,42 @@ The dataset used in this project can be downloaded from:
 👉 https://business.yelp.com/data/resources/open-dataset/
 
 
-## 🚀 Project Overview
-
-This hands-on project is built on a real-world dataset to showcase skills in:
-
-- **Cloud Storage (AWS S3)**
-- **Data Warehousing (Snowflake)**
-- **Data Transformation (Python, SQL)**
-- **Sentiment Analysis (TextBlob via Python UDF in Snowflake)**
-
 
 ## 🏗️ Tech Stack
 
 | Tool        | Purpose                                   |
 |-------------|-------------------------------------------|
-| **AWS S3**  | Cloud storage for raw JSON files          |
-| **Snowflake** | Data warehouse for processing & analytics |
-| **Python**  | Data preprocessing and transformation     |
-| **SQL**     | Data modeling, transformation & querying  |
-| **TextBlob**| Sentiment analysis via Python UDF         |
+| **AWS S3**  | Cloud storage for raw and chunked JSON files         |
+| **Snowflake** | Data warehousing and analytical processing |
+| **Python**  | Data wrangling, file splitting, and transformation     |
+| **SQL**     | Data modeling, flattening JSON, and querying  |
+| **TextBlob**| Sentiment analysis embedded via Python UDF in Snowflake|
 
 ---
 
 ## 🔄 Data Pipeline Workflow
 
-1. **Data Preparation**  
-   - Split large JSON files into smaller chunks for easy ingestion.
+📁 **Data Preparation**  
+   - Chunked large JSON files into smaller parts using Python for easier handling and ingestion.
 
-2. **Cloud Storage (AWS S3)**  
-   - Uploaded processed JSON files directly to an S3 bucket.
+☁️ **Cloud Storage (AWS S3)**  
+   - Uploaded cleaned and structured files to AWS S3, serving as the landing zone for ingestion.
 
-3. **Data Ingestion (Snowflake)**  
-   - Used `COPY INTO` to ingest data from S3 to Snowflake tables (no named stage used).
+🧊 **Data Ingestion (Snowflake)**  
+   - Ingested data from S3 to Snowflake using COPY INTO command (without a named stage), ensuring fast and efficient loading.
+     
+🔄 **Data Transformation**  
+   - Flattened nested JSON structures using Snowflake SQL.
+   - Modeled the data into well-structured relational tables optimized for querying.
 
-4. **Data Transformation**  
-   - Flattened nested JSON using SQL and structured the data into relational tables.
+💬 **Sentiment Analysis**  
+   - Built a Python UDF within Snowflake that leverages TextBlob to perform real-time sentiment analysis on user reviews and comments.
 
-5. **Sentiment Analysis**  
-   - Created a Python UDF in Snowflake using TextBlob to perform sentiment analysis on user reviews.
-
-6. **Data Analysis & Insights**  
-   - Generated insights like:
-     - Top business categories
-     - Most active users
-     - Sentiment trends over time
+📊 **Data Analysis & Insights**  
+   - Extracted actionable insights such as:
+      - Top Business Categories by volume and sentiment
+      - Most Active Users based on review count
+      - Sentiment Trends Over Time, identifying peaks in positive or negative reviews
     
 
 
